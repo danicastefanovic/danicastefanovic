@@ -1,24 +1,31 @@
-clear
-declare -i numFiles
-numFiles=$(find . -maxdepth 1 -not -type d | wc --lines)
+#!/usr/bin/env bash
+# File: guessinggame.sh
 
-function
-guess {
-echo "Can you guess the number of files in current directory? Your
-gues is: "
-n1=$(ls -F |grep -v / | wc -l)
-while read n2; do
-if [[ $n2 -eq $n1 ]]; then
-echo "Congratulations"
-break;
-else
-echo
-if [[ $n2 -gt $n1 ]]; then
-echo -n "Your guess is too high. New guess:"
-elif [[ $n2 -lt $n1 ]]; then
-echo -n "Your guess is too low. New guess:"
-fi
-fi
-done
+echo "Welcome to my Guessing-Game!"
+echo "How many files are there in the current directory?"
+answer=$(ls | wc -l)
+
+function type_number {
+echo "Type in an integer and then press Enter:"
+read number
 }
-Guess
+
+type_number
+
+while :
+do
+  expr "$number" + 1 > /dev/null 2>&1
+  if [[ $? -gt 1 ]]; then
+    echo "You need to input an INTEGER. Try again!"
+    type_number
+  elif [[ $number -eq $answer ]]; then
+    echo "Congratulation! Yes, the answer is $answer."
+    break
+  elif [[ $number -lt $answer ]]; then
+    echo "Oops! Your guess was too low. Try again!"
+    type_number
+  else
+    echo "Oops! Your guess was too high. Try again!"
+    type_number
+  fi
+done
