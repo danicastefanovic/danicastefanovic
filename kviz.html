@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kviz</title>
+    <link rel="stylesheet" href="kviz.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div id="prviPrikaz" class="flex-center flex-column">
+            <form class="end-form-container">
+                <h2 id="end-text">Унеси своје име</h2>
+                <input type="text" name="name" id="username" placeholder="Унеси своје име">
+                <button class="btn" id="sacuvajRezultatBtn" type="submit" onclick="saveHighScore(event)" disabled>Сачувај</button>
+            </form>
+            <div class="info_list">
+
+            </div>
+            <a href="/tabela.html" id="highscore-btn" class="btn">Табела резултата</i></a>
+            <div class="start_btn"><button>Informacije</button></div>
+            <div class="info_box">
+                <div class="info-title"><span>Some Rules of this Quiz</span></div>
+                <div class="info-list">
+                    <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+                    <div class="info">2. Once you select your answer, it can't be undone.</div>
+                    <div class="info">3. You can't select any option once time goes off.</div>
+                    <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+                    <div class="info">5. You'll get points on the basis of your correct answers.</div>
+                </div>
+                <div class="buttons">
+                    <button class="restart">Počni kviz</button>
+                </div>
+            </div>
+</body>
+
+</html>
