@@ -1,51 +1,115 @@
-const username = document.querySelector('#username')
-const saveScoreBtn = document.querySelector('#sacuvajRezultatBtn')
-const finalScore = document.querySelector('#finalScore')
-const mostRecentScore = localStorage.getItem('mostRecentScore')
-const start_btn = document.querySelector(".start_btn button");
-const info_box = document.querySelector(".info_box");
-const continue_btn = info_box.querySelector(".buttons .restart");
+let pitanja = [{
+        broj: 1,
+        pitanje: "Ако хоћеш да знаш каква је држава и њена управа, и каква им је будућност, гледај само да сазнаш колико у тој земљи има честитих и невиних људи по затворима, а колико зликоваца и преступника на слободи...” Ову мисао изрекао је наш нобеловац Иво Андрић у делу:",
+        odgovor: "Проклета авлија",
+        opcije: [
+            "Прича о везировом слону",
+            "Мустафа Маџар",
+            "Проклета авлија",
+            "Прича о кмету Симану"
+        ]
+    },
+    {
+        broj: 2,
+        pitanje: "Да сте којим случајем Индијанац госта бисте позвали у свој:",
+        odgovor: "вигвам",
+        opcije: [
+            "амулет",
+            "томахавк",
+            "вигвам"
+        ]
+    },
+    {
+        broj: 3,
+        pitanje: "Стари Римљани су историју рачунали од оснивања града Рима (753. г. п. н. е) служећи се при наводу година изразом:",
+        odgovor: "ab urbe condita",
+        opcije: [
+            "ab urbe condita",
+            "ex capite",
+            "ab ovo",
+            "ubi et orbii"
+        ]
+    },
+    {
+        broj: 4,
+        pitanje: "Најсувља пустиња на свету, Атакама налази се на подручју:",
+        odgovor: "Чилеа",
+        opcije: [
+            "Боливије",
+            "Чилеа",
+            "Аргентине",
+            "Перуа"
+        ]
+    },
+    {
+        broj: 5,
+        pitanje: "Велика љубав Сирана де Бержерака из истоимене драме Едмона Ростана зове се:",
+        odgovor: "Роксана",
+        opcije: [
+            "Лаура",
+            "Федора",
+            "Роксана",
+            "Манон"
+        ]
+    },
+    {
+        broj: 6,
+        pitanje: "Сефарди су Јевреји који су некад живели у:",
+        odgovor: "Шпанији",
+        opcije: [
+            "Шпанији",
+            "Пољској",
+            "Немачкој",
+            "Турској"
+        ]
+    },
+    {
+        broj: 7,
+        pitanje: "Само једно од наведених чудовишта из грчке митологије нема људску главу.То је: ",
+        odgovor: "Минотаур",
+        opcija: [
+            "Медуза",
+            "Харпија",
+            "Кентаур",
+            "Минотаур"
 
-const highScores = JSON.parse(localStorage.getItem('highScores')) || []
+        ]
 
-const MAX_HIGH_SCORES = 5
+    },
+    {
+        broj: 8,
+        pitanje: "Најодликованији амерички војник у Другом светском рату био је познати холивудски глумац:",
+        odgovor: "Оди Марфи",
+        opcija: [
+            "Гари Купер",
+            "Оди Марфи",
+            "Џејмс Стјуарт",
+            "Џон Вејн"
+        ]
 
-finalScore.innerText = mostRecentScore
-start_btn.onclick = () => {
-    info_box.classList.add("activeInfo"); //show info box
-}
+    },
+    {
+        broj: 9,
+        pitanje: "Прва земља у којој су 1893. године жене стекле право гласа је:",
+        odgovor: "",
+        opcija: [
+            "Грчка",
+            "Мексико",
+            "Јапан",
+            "Нови Зеланд"
+        ]
 
-username.addEventListener('keyup', () => {
-    saveScoreBtn.disabled = !username.value
-})
+    },
+    {
+        broj: 10,
+        pitanje: "Катарина Иванови је у српској култури оставила траг као прва жена:",
+        odgovor: "сликар",
+        opcija: [
+            "сликар",
+            "композитор",
+            "писац",
+            "редитељ"
+        ]
 
-continue_btn.onclick = () => {
-    info_box.classList.remove("activeInfo"); //hide info box
-    quiz_box.classList.add("activeQuiz"); //show quiz box
-    showQuetions(0); //calling showQestions function
-    queCounter(1); //passing 1 parameter to queCounter
-    startTimer(15); //calling startTimer function
-    startTimerLine(0); //calling startTimerLine function
-}
-
-saveHighScore = e => {
-    e.preventDefault()
-
-    const score = {
-        score: mostRecentScore,
-        name: username.value
-    }
-
-    highScores.push(score)
-
-    highScores.sort((a, b) => {
-        return b.score - a.score
-    })
-
-    highScores.splice(5)
-
-    localStorage.setItem('highScores', JSON.stringify(highScores))
-    window.location.assign('/')
-
-
-}
+    },
+];
