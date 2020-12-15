@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 :root {
     background-color: rgba(165, 0, 165, 0.692)
 }
@@ -7,89 +7,65 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 62.5%;
-    font-family: 'Nova Square', cursive;
+    /* font-size: 62.5%;
+    font-family: 'Noto Serif', cursive; */
 }
 
-h1 {
-    font-size: 5.4rem;
-    color: #fff;
-    margin-bottom: 5rem;
+body {
+    font-family: "Nato Serif";
 }
 
-h2 {
-    font-size: 4.2rem;
-    margin-bottom: 4rem;
-}
-
-.container {
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2rem;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
+.prvaSekcija {
+    width: 400px;
 }
 
-.flex-center {
-    justify-content: center;
-    align-items: center;
+.welcome_form input,
+.welcome_form button {
+    display: block;
+    width: 100%;
 }
 
-.justify-center {
-    justify-content: center;
-}
-
-.text-center {
+.welcome_form input {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
     text-align: center;
+    border: none;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 15px;
 }
 
-.hidden {
-    display: none;
+.welcome_form input:focus {
+    outline: none;
 }
 
-.btn {
-    font-size: 2.4rem;
-    padding: 2rem 0;
-    width: 30rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    color: rgb(28, 26, 26);
-    background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 102, 255) 100%);
-    border-radius: 4px;
+.welcome_form button {
+    padding: 20px 0;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(250, 236, 110);
+    color: #000000;
+    font-size: 22px;
+    transition: 0.4s all;
 }
 
-.btn:hover {
+.welcome_form button:hover {
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    /*dugme se uveliča na dodir */
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
-    transition: transform 150ms;
-    transform: scale(1.03);
 }
 
-.btn[disabled]:hover {
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-}
-
-#highscore-btn {
-    background: linear-gradient(90deg, rgb(255, 247, 9) 0%, rgb(240, 221, 6) 100%);
-}
-
-#highscore-btn:hover {
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 255, 0, 0.5)
-}
-
-.start_btn,
-.info_box {
+.info_box,
+{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -97,7 +73,20 @@ h2 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.start_btn button {
+.info_box.activeInfo,
+
+/*.quiz_box.activeQuiz,
+.result_box.activeResult*/
+
+{
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/*.start_btn button{
     font-size: 25px;
     font-weight: 500;
     color: #007bff;
@@ -107,7 +96,8 @@ h2 {
     border-radius: 5px;
     background: #fff;
     cursor: pointer;
-}
+} 
+*/
 
 .info_box {
     width: 540px;
@@ -166,50 +156,4 @@ h2 {
     border-radius: 5px;
     border: 1px solid #007bff;
     transition: all 0.3s ease;
-}
-
-
-/* End Page CSS */
-
-.end-form-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 30rem;
-}
-
-input {
-    margin-bottom: 1rem;
-    width: 20rem;
-    padding: 1.5rem;
-    font-size: 1.8rem;
-    border: none;
-    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-}
-
-input::placeholder {
-    color: #aaa;
-}
-
-#username {
-    margin-bottom: 3rem;
-    width: 100%;
-    outline: none;
-}
-
-#end-text {
-    font-size: 2.4rem;
-    color: #fff;
-    text-align: center;
-}
-
-#saveScoreBtn {
-    border: none;
-}
-
-.fa-home {
-    margin-left: 1rem;
-    font-size: 2rem;
-    color: rgb(28, 26, 26)
 }
